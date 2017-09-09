@@ -1,0 +1,81 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp</title>
+</head>
+<body>
+	<form method="post" action="/signup">
+		<label for="name">Name</label>
+		<input type="text" name="email" id="email">
+
+		<label for="password ">password</label>
+		<input type="password" name="password" id="password"> 
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html >
+<head>
+  <style>
+  .container {
+    margin-top: 20px;
+  }
+
+  .panel-heading {
+    font-size: larger;
+  }
+
+  .alert {
+    display: none;
+  }
+
+  /**
+   * Error color for the validation plugin
+   */
+  .error {
+    color: #e74c3c;
+  }
+  </style>
+  <meta charset="UTF-8">
+  </head>
+<body>
+  <div class="container">
+    <div class="panel-body">
+      <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Successfully submitted!</strong> The form is valid.
+      </div>
+      <form role="form" method="post" action="/login">
+       
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email" name="email" data-validation="email" data-validation="required">
+        </div>
+         <div class="form-group">
+          <label for="name">Password</label>
+          <input type="password" class="form-control" id="password" name="password" data-validation="custom" data-validation-regexp="^([a-zA-Z\s]{3,})$">
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+</div>
+</div>
+<script src='http://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js'></script>
+<script>
+var $form = $("form"),
+  $successMsg = $(".alert");
+$.validate({
+  errorMessageClass: "error",
+  onSuccess: function(){
+    $successMsg.show();
+    form.submit();
+    return false; // stops submitting
+  }
+});
+</script>
+</body>
+</html>
